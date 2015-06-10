@@ -14,5 +14,5 @@ http://www.opengis.eu/geoservice/bevingen.json
 {"id":"earthquake","host":"http://www.opengis.eu/geoservice/"} to http://localhost:1337/jsonurl
 
 2: Open the Featureservice using this url
-http://localhost:1337/jsonurl/aardbeving/bevingen.json/Featureserver/0
+http://localhost:1337/jsonurl/earthquake/bevingen.json/Featureserver/0
 
