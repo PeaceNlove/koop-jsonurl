@@ -37,7 +37,6 @@ var Controller = function( JsonUrl, BaseController ){
         // we remove the geometry if the "find" method already handles geo selection in the cache
         delete req.query.geometry;
         // inherited logic for processing feature service requests 
-		debugger;
         controller.processFeatureServer( req, res, err, data, callback);
       }
     });
