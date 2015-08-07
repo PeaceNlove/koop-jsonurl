@@ -42,7 +42,9 @@ var JsonUrl = function( koop ){
 			  // insert data into the cache; assume layer is 0 unless there are many layers (most cases 0 is fine)  
 			  koop.Cache.insert( type, dbId, json, 0, function( err, success){
 				if ( success ) {
-				  callback( null, json );
+				  var entry = [];
+				  entry.push(json);
+				  callback( null, entry );
 				}
 			  });
 			});
