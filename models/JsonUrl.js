@@ -31,7 +31,7 @@ var JsonUrl = function( koop ){
 		// check the cache for data with this type & id 
 		koop.Cache.get( type, dbId, options, function(err, entry ){
 			
-		  if ( err){
+		  if ( err&& err!=='Not Found'){
 			// if we get an err then get the data and insert it 
 			var url = host + file; // <-- change this to point to a real URL
 	  
@@ -42,15 +42,17 @@ var JsonUrl = function( koop ){
 			  // insert data into the cache; assume layer is 0 unless there are many layers (most cases 0 is fine)  
 			  koop.Cache.insert( type, dbId, json, 0, function( err, success){
 				if ( success ) {
-				  var entry = [];
+				 var entry = [];
 				  entry.push(json);
 				  callback( null, entry );
 				}
 			  });
 			});
-		  } else {
-			callback( null, entry );
 		  }
+		  else {
+				if (!entry && err==='Not Found'){entry = [{type: 'FeatureCollection',features: []}];}
+				callback( null, entry );
+			}
 		});
       }
     });
